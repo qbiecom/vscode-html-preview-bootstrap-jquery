@@ -5,7 +5,7 @@
   "publisher": "MattWarwick",
   "description": "Preview HTML snippets with Bootstrap and jQuery",
   "icon": "images/icon.png",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/qbiecom/vscode-html-preview-bootstrap-jquery.git"
@@ -34,11 +34,11 @@
         "htmlPreview.bootstrapVersion": {
           "type": "string",
           "enum": [
-            "3.41",
-            "4.62",
-            "5.33"
+            "3.4.1",
+            "4.6.2",
+            "5.3.3"
           ],
-          "default": "3.41",
+          "default": "3.4.1",
           "description": "Select the version of Bootstrap to include in the HTML preview."
         },
         "htmlPreview.jqueryVersion": {

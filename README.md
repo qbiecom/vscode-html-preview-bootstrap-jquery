@@ -18,8 +18,6 @@ If you change the version sof Bootstrap or jQuery in the extension settings, clo
 
 ## Release Notes
 
-* 1.1.1 - Updated readme
-* 1.1.0 - Choose which versions of libraries to include from the extension settings
-* 1.0.0 - Initial Release, only supports Bootstrap 3 and jQuery 2
+See the changelog.
 
 **Enjoy!**
