@@ -5,7 +5,7 @@
   "publisher": "Matt Warwick",
   "description": "Preview HTML snippets with Bootstrap and jQuery",
   "icon": "images/icon.png",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "engines": {
     "vscode": "^1.87.0"
   },
