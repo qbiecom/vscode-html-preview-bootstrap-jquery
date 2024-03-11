@@ -1,0 +1,72 @@
+{
+  "name": "html-preview-with-bootstrap-jquery",
+  "displayName": "HTML Preview with Bootstrap & jQuery",
+  "author": "Matt Warwick",
+  "publisher": "Matt Warwick",
+  "description": "Preview HTML snippets with Bootstrap and jQuery",
+  "icon": "images/icon.png",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "html-preview-with-bootstrap-jquery.preview",
+        "title": "HTML Preview with Bootstrap and jQuery",
+        "configuration": {
+          "title": "HTML Preview with Libraries"
+        }
+      }
+    ],
+    "configuration": {
+      "title": "HTML Preview with Libraries Settings",
+      "properties": {
+        "htmlPreview.bootstrapVersion": {
+          "type": "string",
+          "enum": [
+            "3.41",
+            "4.62",
+            "5.33"
+          ],
+          "default": "3.41",
+          "description": "Select the version of Bootstrap to include in the HTML preview."
+        },
+        "htmlPreview.jqueryVersion": {
+          "type": "string",
+          "enum": [
+            "1.12.4",
+            "2.2.4",
+            "3.7.1"
+          ],
+          "default": "2.2.4",
+          "description": "Select the version of jQuery to include in the HTML preview."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.87.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "@vscode/test-cli": "^0.0.6",
+    "@vscode/test-electron": "^2.3.9"
+  }
+}
