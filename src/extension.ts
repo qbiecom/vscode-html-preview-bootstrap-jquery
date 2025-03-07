@@ -34,9 +34,20 @@ export function activate(context: vscode.ExtensionContext) {
         const updateWebviewContent = () => {
             if (editor && currentPanel) {
                 const documentContent = editor.document.getText();
-                const bootstrapCssCdn = `https://cdn.jsdelivr.net/npm/bootstrap@${bootstrapVersion}/dist/css/bootstrap.min.css`;
-                const bootstrapJsCdn = `https://cdn.jsdelivr.net/npm/bootstrap@${bootstrapVersion}/dist/js/bootstrap.min.js`;
-                const jqueryJsCdn = `https://cdnjs.cloudflare.com/ajax/libs/jquery/${jqueryVersion}/jquery.min.js`;
+                
+                // Determine whether to include Bootstrap and jQuery based on selected versions
+                const includeBootstrap = bootstrapVersion !== 'None';
+                const includeJquery = jqueryVersion !== 'None';
+                
+                // Only create CDN links if the libraries are included
+                const bootstrapCssCdn = includeBootstrap ?
+                    `https://cdn.jsdelivr.net/npm/bootstrap@${bootstrapVersion}/dist/css/bootstrap.min.css` : '';
+                const bootstrapJsCdn = includeBootstrap ?
+                    `https://cdn.jsdelivr.net/npm/bootstrap@${bootstrapVersion}/dist/js/bootstrap.min.js` : '';
+                const jqueryJsCdn = includeJquery ?
+                    `https://cdnjs.cloudflare.com/ajax/libs/jquery/${jqueryVersion}/jquery.min.js` : '';
+                
+                // Create HTML content with conditional includes
                 const htmlContent = `
                 <!DOCTYPE html>
                 <html lang="en">
@@ -44,14 +55,14 @@ export function activate(context: vscode.ExtensionContext) {
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <title>Preview</title>
-                    <link href="${bootstrapCssCdn}" rel="stylesheet">
+                    ${includeBootstrap ? `<link href="${bootstrapCssCdn}" rel="stylesheet">` : ''}
                 </head>
                 <body>
-                <div class="container">
+                <div class="${includeBootstrap ? 'container' : ''}">
                     ${documentContent}
-                    <script src="${jqueryJsCdn}"></script>
-                    <script src="${bootstrapJsCdn}"></script>
-                </div> 
+                    ${includeJquery ? `<script src="${jqueryJsCdn}"></script>` : ''}
+                    ${includeBootstrap ? `<script src="${bootstrapJsCdn}"></script>` : ''}
+                </div>
                 </body>
                 </html>
                 `;

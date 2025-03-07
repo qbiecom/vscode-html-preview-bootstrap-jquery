@@ -7,8 +7,10 @@ Preview HTML snippets with Bootstrap and jQuery directly in VS Code. This extens
 I use this for helping me write Knowledge Base articles in ServiceNow using [SNUtils and SN-Scriptsync](https://www.arnoudkooi.com) but I'm sure there are many other use cases!
 
 Choose from a wide range of versions:
-* Bootstrap: versions 3.1.1 through 5.3.3
-* jQuery: versions 1.5.1 through 3.7.1
+* Bootstrap: 'None' or versions 3.1.1 through 5.3.3
+* jQuery: 'None' or versions 1.5.1 through 3.7.1
+
+You can select 'None' for either Bootstrap or jQuery if you don't want to include that library in your preview. This is useful if you want to preview HTML with only one of the libraries or if you want to use other frameworks in the future.
 
 ## Instructions
 
